@@ -2,7 +2,6 @@
     border: 5px solid black;
     width: 10px;
     height: 10px;
-    border-radius: 20px;
     animation: spin 1s linear infinite;
 }
 
@@ -12,15 +11,17 @@
 }
 
 .country-card{
-    display: block;
-    margin: auto;
     border: 1px solid black;
-    width: 80px;
-    height: 60px;
+    padding: 20px;
+    width: 1000px;
+    background-color: aquamarine;
+    min-height: 200px;
 }
 
-border-grid {
+.border-grid {
     display: flex;
+    flex-direction: column;
+    
    
 }
 
@@ -31,4 +32,6 @@ border-grid {
 
 .hidden {
     display: none;
+    
 }
+
