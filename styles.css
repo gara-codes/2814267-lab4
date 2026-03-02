@@ -12,7 +12,23 @@
 }
 
 .country-card{
-    background-color: grey;
+    display: block;
+    margin: auto;
+    border: 1px solid black;
     width: 80px;
     height: 60px;
+}
+
+border-grid {
+    display: flex;
+   
+}
+
+.error {
+    color: red;
+    /* Additional styling */
+}
+
+.hidden {
+    display: none;
 }
