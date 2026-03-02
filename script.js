@@ -7,7 +7,7 @@ async function searchCountry(countryName) {
             const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
 
     if(!response.ok){
-        throw new Error("Could not fetch resource");
+        throw new Error("Could not fetch country");
     }
     const data = await response.json();
     const country = data[0];
@@ -23,13 +23,13 @@ async function searchCountry(countryName) {
             const borderContainer = document.getElementById("bordering-countries");
             borderContainer.innerHTML = ""; 
 
+            borderContainer.innerHTML = "<h2>Neighbouring Countries</h2>";
             for (const code of country.borders) {
                 const borderResponse = await fetch(`https://restcountries.com/v3.1/alpha/${code}`);
                 const borderData = await borderResponse.json();
                 const borderCountry = borderData[0];
 
-                borderContainer.innerHTML += `
-                <h2>Neighbouring countries</h2>  
+                borderContainer.innerHTML += ` 
                     <p>${borderCountry.name.common}</p>
                     <img src="${borderCountry.flags.svg}" alt="${borderCountry.name.common} flag" width="100">
                 `;
@@ -41,6 +41,8 @@ async function searchCountry(countryName) {
         
     } catch (error) {
         console.error(error);
+        const errorMessage = document.getElementById("error-message");
+        errorMessage.textContent = error.message;
     } finally {
         spinner.classList.add("hidden");
 
